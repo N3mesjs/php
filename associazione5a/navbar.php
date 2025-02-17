@@ -12,20 +12,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                 </li>
             </ul>
         </div>
     </div>
     <div>
         <?php 
-            echo isset($_SESSION["authenticated"]) && $_SESSION["authenticated"]==true ? "" : "<a href='login.php'><button type='button' class='navbar-brand btn btn-dark text-white'>accedi</button></a>";
+            echo isset($_SESSION["authenticated"]) && $_SESSION["authenticated"]==true ? "<a><button type='button' class='navbar-brand btn btn-danger'>Danger</button></a>" : 
+            "<a href='login.php'><button type='button' class='navbar-brand btn btn-dark text-white'>accedi</button></a>";
         ?>
     </div>
 </nav>
