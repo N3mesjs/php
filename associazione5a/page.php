@@ -1,7 +1,3 @@
-<?php
-    session_start();
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -17,7 +13,7 @@
 <?php require_once "navbar.php" ?>
     <?php require_once "sqlCon.php" ?>
 
-<div class="container">
+<div class="container d-flex flex-column align-items-center">
 <?php 
     $sql = "SELECT * FROM attivita WHERE idatt='".$_GET["idatt"]."'";
     $prep = $conn->prepare($sql);
@@ -28,6 +24,10 @@
         echo "<div class='container text-center'>".$row["Descrizione"]."</div>";
     }
 ?>
+
+<div class="mt-5">
+        <?php echo "<a href='editPage.php?idatt=".$_GET["idatt"]."'><button type='button' class='btn btn-dark'>Modifica</button></a>" ?>
+    </div>
 </div>
 
 </body>

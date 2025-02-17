@@ -13,10 +13,8 @@
     $_SESSION["isAdmin"] = false;
 
     try {
-        $sql = "SELECT * FROM utenti WHERE user=:user AND password=:pass";
+        $sql = "SELECT * FROM utenti WHERE user='".$user."' AND password='".$pass."'";
         $prep = $conn->prepare($sql);
-        $prep->bindParam(':user', $user);
-        $prep->bindParam(':pass', $pass);
         $prep->execute();
         $result = $prep->fetchAll(PDO::FETCH_ASSOC);
         foreach ($result as $row) {
@@ -28,6 +26,6 @@
             }
         }
     } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        echo "Errore: " . $e->getMessage();
     }
 ?>
